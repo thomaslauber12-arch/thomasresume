@@ -21,7 +21,10 @@ body{
   font-family:'Inter',system-ui,-apple-system,sans-serif;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  opacity:0;
+  transition:opacity 260ms ease;
 }
+html.page-visible body{opacity:1;}
 h1,h2,h3{
   font-family:'Fraunces',Georgia,serif;
   color:var(--moss-deep);
@@ -158,6 +161,50 @@ header.site-nav{
 .contact-row a{text-decoration:none; font-weight:500; border-bottom:1px solid var(--line); transition:border-color .2s ease, color .2s ease;}
 .contact-row a:hover{border-color:var(--gold); color:var(--moss-deep);}
 
+.copy-target{
+  background:none;
+  border:none;
+  padding:2px 0;
+  margin:0;
+  font:inherit;
+  font-weight:500;
+  color:inherit;
+  cursor:pointer;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  transition:border-color .2s ease, color .2s ease, opacity .15s ease;
+}
+.copy-target:hover{border-color:var(--gold); color:var(--moss-deep);}
+.copy-target:active{opacity:0.65;}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translate(-50%,10px);
+  background:var(--moss-deep);
+  color:#fff;
+  padding:11px 20px;
+  border-radius:8px;
+  font-size:0.9rem;
+  font-weight:500;
+  box-shadow:var(--shadow);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  z-index:200;
+}
+.toast.toast-visible{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.contact-hint{
+  margin-top:14px;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+}
+
 .page-head{padding:70px 24px 20px;}
 .page-head .section-inner{max-width:var(--maxw); margin:0 auto;}
 .page-head h1{font-size:clamp(2rem,4.5vw,2.6rem); font-weight:600; margin-top:8px;}
@@ -173,6 +220,7 @@ footer{
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   *{transition:none !important; animation:none !important;}
+  body{opacity:1;}
   .reveal{opacity:1; transform:none;}
 }
 
