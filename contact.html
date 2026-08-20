@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>body{opacity:1 !important;}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -42,17 +43,18 @@
       <div class="card contact-card">
         <div class="contact-row">
           <span class="label">Email</span>
-          <a href="mailto:thomas_lauber@icloud.com">thomas_lauber@icloud.com</a>
+          <button type="button" class="copy-target" data-copy="thomas_lauber@icloud.com" aria-label="Copy email address to clipboard">thomas_lauber@icloud.com</button>
         </div>
         <div class="contact-row">
           <span class="label">Phone</span>
-          <a href="tel:+19126482770">(912) 648-2770</a>
+          <button type="button" class="copy-target" data-copy="(912) 648-2770" aria-label="Copy phone number to clipboard">(912) 648-2770</button>
         </div>
         <div class="contact-row">
           <span class="label">Location</span>
           <span>Statesboro, GA</span>
         </div>
       </div>
+      <p class="contact-hint">Click the email or phone number to copy it.</p>
     </div>
   </section>
 </main>
@@ -60,6 +62,8 @@
 <footer>
   <p>Thomas Lauber. Statesboro, GA.</p>
 </footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script src="script.js"></script>
 </body>
